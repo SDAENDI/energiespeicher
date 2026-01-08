@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energiespeicher der Zukunft</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-bolt"></i> EnergyStorage
+            </div>
+            <div class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="technologies.html">Technologien</a></li>
+                <li><a href="comparison.html">Vergleich</a></li>
+                <li><a href="news.html">News & Zukunft</a></li>
+                <li><a href="sources.html">Quellen</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Die Speicher der Energiewende</h1>
+            <p>
+                Ohne Energiespeicher keine Energiewende. Entdecke, wie wir Strom aus Wind und Sonne für dunkle Flauten
+                speichern können. Von modernen Batterien bis hin zu riesigen Wasserstoff-Tanks.
+            </p>
+            <div class="hero-actions">
+                <a href="technologies.html" class="btn">Technologien entdecken</a>
+                <a href="comparison.html" class="btn btn-outline">Zum Vergleich</a>
+            </div>
+        </section>
+
+        <section id="why" class="overview">
+            <h2 class="section-title">Warum brauchen wir Speicher?</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fa-solid fa-solar-panel"></i>
+                    </div>
+                    <h3>Volatilität</h3>
+                    <p>
+                        Erneuerbare Energien wie Wind und Sonne sind nicht immer verfügbar. Speicher gleichen diese
+                        Schwankungen aus und sorgen für stabile Netze.
+                    </p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fa-solid fa-plug-circle-bolt"></i>
+                    </div>
+                    <h3>Versorgungssicherheit</h3>
+                    <p>
+                        Was passiert bei einer "Dunkelflaute"? Langzeitspeicher wie Wasserstoff oder Pumpspeicher
+                        springen ein, wenn die Natur Pause macht.
+                    </p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fa-solid fa-car-battery"></i>
+                    </div>
+                    <h3>Mobilität & Sektoren</h3>
+                    <p>
+                        Nicht nur im Stromnetz: Auch E-Autos und die Industrie benötigen effiziente, mobile
+                        Speicherlösungen für eine dekarbonisierte Zukunft.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 4rem; text-align: center;">
+            <h2 class="section-title">Technologie-Überblick</h2>
+            <p style="max-width: 700px; margin: 0 auto 2rem;">
+                Wir betrachten mechanische, elektrochemische, chemische, elektrische und thermische Speicher im Detail.
+            </p>
+            <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <a href="technologies.html#mech" class="card"
+                    style="text-align: center; text-decoration: none; color: inherit;">
+                    <i class="fa-solid fa-water"
+                        style="font-size: 2rem; margin-bottom:0.5rem; color: var(--primary-color);"></i>
+                    <h4>Mechanisch</h4>
+                </a>
+                <a href="technologies.html#electro" class="card"
+                    style="text-align: center; text-decoration: none; color: inherit;">
+                    <i class="fa-solid fa-battery-full"
+                        style="font-size: 2rem; margin-bottom:0.5rem; color: var(--primary-color);"></i>
+                    <h4>Elektrochemisch</h4>
+                </a>
+                <a href="technologies.html#chem" class="card"
+                    style="text-align: center; text-decoration: none; color: inherit;">
+                    <i class="fa-solid fa-flask"
+                        style="font-size: 2rem; margin-bottom:0.5rem; color: var(--primary-color);"></i>
+                    <h4>Chemisch</h4>
+                </a>
+                <a href="technologies.html#therm" class="card"
+                    style="text-align: center; text-decoration: none; color: inherit;">
+                    <i class="fa-solid fa-fire"
+                        style="font-size: 2rem; margin-bottom:0.5rem; color: var(--primary-color);"></i>
+                    <h4>Thermisch</h4>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>EnergyStorage</h3>
+                <p>Eine Informationswebseite über Speichertechnologien für die Schule.</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="sources.html">Quellen</a>
+                <a href="#">Impressum</a>
+            </div>
+            <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2026. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

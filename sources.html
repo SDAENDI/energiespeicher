@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quellen - Energiespeicher</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .source-list {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .source-item {
+            background-color: var(--card-bg);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: background-color 0.2s;
+        }
+
+        .source-item:hover {
+            background-color: rgba(42, 157, 143, 0.05);
+        }
+
+        .file-icon {
+            color: #e74c3c;
+            /* PDF Red */
+            font-size: 1.5rem;
+        }
+
+        .file-name {
+            font-weight: 500;
+            flex-grow: 1;
+        }
+
+        .file-size {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            background: rgba(0, 0, 0, 0.05);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-bolt"></i> EnergyStorage
+            </div>
+            <div class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="technologies.html">Technologien</a></li>
+                <li><a href="comparison.html">Vergleich</a></li>
+                <li><a href="news.html">News & Zukunft</a></li>
+                <li><a href="sources.html" class="active">Quellen</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="padding: 3rem 1rem;">
+            <h1>Quellenverzeichnis</h1>
+            <p>Die Inhalte dieser Webseite basieren auf folgenden wissenschaftlichen Publikationen, Artikeln und
+                Dokumenten.</p>
+        </section>
+
+        <section style="max-width: 800px; margin: 0 auto;">
+            <div class="card" style="padding: 0; overflow: hidden;">
+                <div style="padding: 1.5rem; background: var(--secondary-color); color: white;">
+                    <h3 style="margin: 0; color: white;"><i class="fa-regular fa-folder-open"></i> /quellen</h3>
+                </div>
+                <div style="padding: 1.5rem;">
+                    <ul class="source-list">
+                        <!-- List generated from directory contents -->
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">Itas.kit.edu.pdf</span>
+                            <span class="file-size">1.7 MB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">mdpi1.pdf</span>
+                            <span class="file-size">3.0 MB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">mdpi2.pdf</span>
+                            <span class="file-size">1.8 MB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">mdpi3.pdf</span>
+                            <span class="file-size">3.1 MB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">mdpi4.pdf</span>
+                            <span class="file-size">3.3 MB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">nature.pdf</span>
+                            <span class="file-size">1.8 MB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">news-bulletin.pdf</span>
+                            <span class="file-size">311 KB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">news-cleanenerywire.pdf</span>
+                            <span class="file-size">41 KB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">news-daswissen.pdf</span>
+                            <span class="file-size">200 KB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">news-strom.pdf</span>
+                            <span class="file-size">40 KB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">news-theguardian.pdf</span>
+                            <span class="file-size">95 KB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">pdf24_zusammengefügt.pdf</span>
+                            <span class="file-size">3.9 MB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">sciencedirect1.pdf</span>
+                            <span class="file-size">12.5 MB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">sciencedirect2.pdf</span>
+                            <span class="file-size">16.9 MB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">sciencedirect3.pdf</span>
+                            <span class="file-size">9.3 MB</span>
+                        </li>
+                        <li class="source-item">
+                            <i class="fa-regular fa-file-pdf file-icon"></i>
+                            <span class="file-name">springer.pdf</span>
+                            <span class="file-size">3.6 MB</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; opacity: 0.7;">
+                Alle Dateien befinden sich im Ordner <code>/quellen</code>.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>EnergyStorage</h3>
+                <p>Eine Informationswebseite über Speichertechnologien für die Schule.</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="sources.html" class="active">Quellen</a>
+                <a href="#">Impressum</a>
+            </div>
+            <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2026. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
