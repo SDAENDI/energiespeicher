@@ -35,23 +35,42 @@
             border-radius: 50%;
         }
 
-        .tech-details {
+        .tech-showcase {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-top: 2rem;
+        }
+
+        .tech-showcase-content {
+            padding: 2rem;
+        }
+
+        .tech-label {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-md);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tech-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 2rem;
+            margin-top: 1.5rem;
         }
 
         @media (max-width: 768px) {
-            .tech-details {
+            .tech-grid {
                 grid-template-columns: 1fr;
             }
-        }
-
-        .detail-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
         }
     </style>
 </head>
@@ -69,6 +88,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="technologies.html" class="active">Technologien</a></li>
                 <li><a href="comparison.html">Vergleich</a></li>
+                <li><a href="schweiz.html">Schweiz</a></li>
                 <li><a href="news.html">News & Zukunft</a></li>
                 <li><a href="sources.html">Quellen</a></li>
             </ul>
@@ -87,36 +107,47 @@
                 <div class="tech-icon"><i class="fa-solid fa-water"></i></div>
                 <h2>Mechanische Speicher</h2>
             </div>
-            <div class="tech-details">
-                <div>
+            <p>
+                Mechanische Speicher nutzen potentielle oder kinetische Energie. Sie sind die älteste Form der
+                großtechnischen Speicherung
+                und bilden bis heute das Rückgrat der weltweiten Speicherkapazität [1].
+            </p>
+
+            <div class="tech-showcase">
+                <img src="https://placehold.co/1200x500?text=Pumpspeicherkraftwerk+(PHS)" alt="Pumpspeicherkraftwerk"
+                    class="responsive-img"
+                    style="margin-bottom: 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+                <div class="tech-showcase-content">
+                    <span class="tech-label">Beispieltechnologie</span>
                     <h3>Pumpspeicherkraftwerke (PHS)</h3>
                     <p>
-                        Pumpspeicher sind die älteste und bewährteste Form der großtechnischen Energiespeicherung. Sie
-                        nutzen überschüssigen Strom, um Wasser von einem niedriger gelegenen Reservoir in ein höher
-                        gelegenes Becken zu pumpen. Bei Strombedarf fließt das Wasser durch Turbinen zurück und erzeugt
-                        Elektrizität.
+                        Pumpspeicherkraftwerke sind aktuell die einzig verfügbare Technologie für Energiespeicherung im
+                        Gigawatt-Bereich.
+                        Sie basieren auf einem einfachen physikalischen Prinzip: der Hebung von Massen (Wasser) im
+                        Gravitationsfeld der Erde [16].
                     </p>
-                    <br>
-                    <p>
-                        <strong>Vorteil:</strong> Enorme Speicherkapazität und sehr lange Lebensdauer.<br>
-                        <strong>Nachteil:</strong> Geografisch stark eingeschränkt (benötigt Höhenunterschiede) und
-                        großer Eingriff in die Natur.
-                    </p>
-                </div>
-                <div>
-                    <h3>Druckluftspeicher (CAES)</h3>
-                    <p>
-                        Compressed Air Energy Storage (CAES) komprimiert Luft in unterirdischen Kavernen (z.B.
-                        Salzstöcken). Wird Energie benötigt, wird die Luft erhitzt und entspannt, um eine Turbine
-                        anzutreiben. Moderne adiabatische Verfahren versuchen, die Kompressionswärme zu speichern, um
-                        den Wirkungsgrad zu erhöhen.
-                    </p>
-                    <br>
-                    <p>
-                        <strong>Schwungräder:</strong> Kinetische Energiespeicher, bei denen eine Rotormasse auf extrem
-                        hohe Drehzahlen beschleunigt wird. Sie sind ideal für kurzzeitige Ausgleiche im Sekundenbereich
-                        (Frequenzhaltung).
-                    </p>
+                    <div class="tech-grid">
+                        <div>
+                            <h4>Funktionsweise</h4>
+                            <p style="font-size: 0.95rem; opacity: 0.8;">
+                                Überschüssiger Strom treibt Pumpen an, die Wasser aus einem Talbecken in ein
+                                hochgelegenes Speicherbecken befördern.
+                                Die elektrische Energie <span style="font-family: monospace;">E_el</span> wird in
+                                potentielle Energie <span style="font-family: monospace;">E_pot = m * g * h</span>
+                                umgewandelt.
+                                Bei Strombedarf stürzt das Wasser durch Druckleitungen zurück und treibt Turbinen an
+                                [16].
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Eigenschaften</h4>
+                            <ul style="padding-left: 1.5rem; font-size: 0.95rem; opacity: 0.8; margin-top: 0.5rem;">
+                                <li><strong>Wirkungsgrad:</strong> 70 - 85% (Round-Trip) [2]</li>
+                                <li><strong>Lebensdauer:</strong> > 50 Jahre (sehr langlebig) [1]</li>
+                                <li><strong>Limitierung:</strong> Abhängig von Topografie (Berge/Täler) [3]</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -125,33 +156,46 @@
         <section id="electro" class="tech-section">
             <div class="tech-header">
                 <div class="tech-icon"><i class="fa-solid fa-battery-full"></i></div>
-                <h2>Elektrochemische Speicher (Batterien)</h2>
+                <h2>Elektrochemische Speicher</h2>
             </div>
-            <div class="tech-details">
-                <div>
-                    <h3>Lithium-Ionen-Akkus</h3>
+            <p>
+                Hier wird elektrische Energie direkt in chemische Bindungsenergie umgewandelt. Batterien sind modular,
+                ortsunabhängig und haben extrem schnelle Reaktionszeiten [2].
+            </p>
+
+            <div class="tech-showcase">
+                <img src="https://placehold.co/1200x500?text=Lithium-Ionen+Zelle" alt="Lithium Ionen Akku"
+                    class="responsive-img"
+                    style="margin-bottom: 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+                <div class="tech-showcase-content">
+                    <span class="tech-label">Beispieltechnologie</span>
+                    <h3>Lithium-Ionen-Akkumulator</h3>
                     <p>
-                        Der Standard für mobile Elektronik und E-Autos. Li-Ion-Akkus basieren auf der Wanderung von
-                        Lithium-Ionen zwischen Kathode und Anode. Sie bieten eine hohe Energiedichte und fallende
-                        Kosten, dominieren daher auch zunehmend den Heimspeicher-Markt für PV-Anlagen.
+                        Der Standard für mobile Elektronik und E-Mobilität. Li-Ion-Akkus bieten die höchste
+                        Energiedichte
+                        unter den kommerziellen Batterien und haben die Kosten für Speicher in den letzten 10 Jahren um
+                        90% gesenkt [4].
                     </p>
-                    <ul style="margin-top:1rem; margin-left:1.5rem; list-style-type:circle;">
-                        <li>Hoher Wirkungsgrad (ca. 95%)</li>
-                        <li>Lebensdauer: 10-20 Jahre</li>
-                        <li>Herausforderung: Rohstoffgewinnung (Kobalt, Lithium)</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Redox-Flow-Batterien</h3>
-                    <p>
-                        Hier wird die Energie nicht in festen Elektroden, sondern in flüssigen Elektrolyten gespeichert,
-                        die in Tanks lagern. Die Leistung (Größe der Zelle) und Kapazität (Größe der Tanks) sind
-                        unabhängig voneinander skalierbar.
-                    </p>
-                    <br>
-                    <div class="detail-card">
-                        <strong>Warum wichtig?</strong> Perfekt für stationäre Großspeicher, da sie nicht brennbar sind
-                        und fast keine Zyklalterung aufweisen.
+                    <div class="tech-grid">
+                        <div>
+                            <h4>Funktionsweise</h4>
+                            <p style="font-size: 0.95rem; opacity: 0.8;">
+                                Beim Laden wandern Lithium-Ionen (<span style="font-family: monospace;">Li+</span>) von
+                                der Kathode (Pluspol, oft Metalloxide) durch einen Separator zur Anode (Minuspol, meist
+                                Graphit) und lagern sich dort ein (Interkalation).
+                                Beim Entladen wandern sie zurück und geben dabei Elektronen über den äußeren Stromkreis
+                                ab [4].
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Eigenschaften</h4>
+                            <ul style="padding-left: 1.5rem; font-size: 0.95rem; opacity: 0.8; margin-top: 0.5rem;">
+                                <li><strong>Wirkungsgrad:</strong> > 95% (Hocheffizient) [2]</li>
+                                <li><strong>Zyklen:</strong> 1.000 - 5.000 [6]</li>
+                                <li><strong>Herausforderung:</strong> Kritische Rohstoffe (Kobalt, Lithium) und
+                                    Brandgefahr (Thermal Runaway) [6].</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -163,26 +207,46 @@
                 <div class="tech-icon"><i class="fa-solid fa-flask"></i></div>
                 <h2>Chemische Speicher (Power-to-Gas)</h2>
             </div>
-            <p style="margin-bottom: 2rem;">
-                Chemische Speicher sind der Schlüssel zur <strong>saisonalen Speicherung</strong>. Sie wandeln Strom in
-                energiereiche Gase oder Flüssigkeiten um.
+            <p>
+                Für die langfristige Speicherung großer Energiemengen (TWh-Bereich) führt kein Weg an chemischen
+                Energieträgern vorbei.
+                Sie ermöglichen den saisonalen Ausgleich zwischen Sommer und Winter [15].
             </p>
-            <div class="tech-details">
-                <div class="detail-card">
-                    <h3>Wasserstoff (H₂)</h3>
+
+            <div class="tech-showcase">
+                <img src="https://placehold.co/1200x500?text=Wasserelektrolyse+Schema" alt="Wasserstoff Elektrolyse"
+                    class="responsive-img"
+                    style="margin-bottom: 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+                <div class="tech-showcase-content">
+                    <span class="tech-label">Beispieltechnologie</span>
+                    <h3>Grüner Wasserstoff (H₂)</h3>
                     <p>
-                        Mittels Elektrolyse wird Wasser in Wasserstoff und Sauerstoff gespalten. Der Wasserstoff kann
-                        gespeichert und später in Brennstoffzellen rückverstromt oder in der Industrie genutzt werden.
-                        Er ist essentiell für die Dekarbonisierung schwerer Industriezweige (Stahl, Chemie).
+                        Wasserstoff wird oft als "Erdöl von morgen" bezeichnet. Er ist ein universeller Energieträger,
+                        der aus erneuerbarem Strom erzeugt wird und speicherbar, transportierbar sowie vielseitig
+                        nutzbar ist [13].
                     </p>
-                </div>
-                <div class="detail-card">
-                    <h3>Synthetisches Methan (SNG)</h3>
-                    <p>
-                        H₂ kann unter Zugabe von CO₂ in Methan umgewandelt werden (Methanisierung). Dies kann direkt in
-                        das bestehende Erdgasnetz eingespeist werden, hat aber durch die doppelten Umwandlungsschritte
-                        einen geringeren Wirkungsgrad (Power-to-Gas-to-Power ca. 30-40%).
-                    </p>
+                    <div class="tech-grid">
+                        <div>
+                            <h4>Funktionsweise</h4>
+                            <p style="font-size: 0.95rem; opacity: 0.8;">
+                                In einem <strong>Elektrolyseur</strong> wird Wasser (<span
+                                    style="font-family: monospace;">H₂O</span>) unter Einsatz von Strom in seine
+                                Bestandteile Wasserstoff (<span style="font-family: monospace;">H₂</span>) und
+                                Sauerstoff (<span style="font-family: monospace;">O₂</span>) gespalten.
+                                Der Wasserstoff kann in Tanks oder Salzkavernen gespeichert und später in
+                                Brennstoffzellen rückverstromt werden [13].
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Eigenschaften</h4>
+                            <ul style="padding-left: 1.5rem; font-size: 0.95rem; opacity: 0.8; margin-top: 0.5rem;">
+                                <li><strong>Kapazität:</strong> Nahezu unbegrenzt skalierbar [11]</li>
+                                <li><strong>Wirkungsgrad:</strong> Gering (ca. 40% Strom-zu-Strom) [15]</li>
+                                <li><strong>Vorteil:</strong> Einzige Lösung für Sektorenkopplung (Chemie, Stahl,
+                                    Verkehr) [8].</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -193,21 +257,43 @@
                 <div class="tech-icon"><i class="fa-solid fa-fire"></i></div>
                 <h2>Thermische Speicher</h2>
             </div>
-            <div class="tech-details">
-                <div>
-                    <h3>Sensible Wärmespeicher</h3>
-                    <p>
-                        Die einfachste Form: Ein Medium (Wasser, Stein) wird erhitzt. Bekannt aus Fernwärmenetzen oder
-                        dem häuslichen Warmwasserspeicher. Großtechnisch werden riesige isolierte Wassertanks genutzt.
-                    </p>
-                </div>
-                <div>
+            <p>
+                Wärme macht einen Großteil des menschlichen Energiebedarfs aus. Thermische Speicher entkoppeln
+                Wärmeproduktion
+                (z.B. Solarthermie) vom Verbrauch (Heizung).
+            </p>
+
+            <div class="tech-showcase">
+                <img src="https://placehold.co/1200x500?text=Phasenwechselmaterial+(PCM)" alt="Latentwärmespeicher"
+                    class="responsive-img"
+                    style="margin-bottom: 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+                <div class="tech-showcase-content">
+                    <span class="tech-label">Beispieltechnologie</span>
                     <h3>Latentwärmespeicher (PCM)</h3>
                     <p>
-                        Phase Change Materials (PCM) nutzen die Energie beim Phasenübergang (z.B. schmelzen von Salz
-                        oder Paraffin). Sie können große Energiemengen auf kleinem Raum bei konstanter Temperatur
-                        speichern. Oft genutzt in Solarkraftwerken (Molten Salt), um auch nachts Strom zu produzieren.
+                        PCM (Phase Change Materials) nutzen physikalische Phasenübergänge (z.B. schmelzen/erstarren), um
+                        Energie zu speichern.
+                        Sie bieten eine weit höhere Speicherdichte als Wassertanks.
                     </p>
+                    <div class="tech-grid">
+                        <div>
+                            <h4>Funktionsweise</h4>
+                            <p style="font-size: 0.95rem; opacity: 0.8;">
+                                Beim Wechsel des Aggregatzustands (z.B. fest zu flüssig) nimmt ein Stoff viel Wärme auf,
+                                ohne dass seine Temperatur steigt (latente Wärme).
+                                Bekanntes Beispiel: Paraffin oder spezielle Salze. Beim Erstarren wird diese Wärme
+                                wieder abgegeben. Dies ermöglicht Speicherung auf konstantem Temperaturniveau [14].
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Eigenschaften</h4>
+                            <ul style="padding-left: 1.5rem; font-size: 0.95rem; opacity: 0.8; margin-top: 0.5rem;">
+                                <li><strong>Dichte:</strong> Hohe Energiedichte bei kleinem Volumen</li>
+                                <li><strong>Einsatz:</strong> Gebäudeklimatisierung, Industrieprozesse</li>
+                                <li><strong>Besonderheit:</strong> Pufferung von Temperaturspitzen.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -218,16 +304,36 @@
                 <div class="tech-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
                 <h2>Elektrische Speicher</h2>
             </div>
-            <p>
-                Speicher, die Elektrizität direkt in einem elektrischen oder magnetischen Feld speichern.
-            </p>
-            <div style="margin-top: 1rem;">
-                <h3>Superkondensatoren (Supercaps)</h3>
-                <p>
-                    Speichern Energie elektrostatisch. Sie haben eine extrem hohe Leistungsdichte (schnelles
-                    Be-/Entladen) aber geringe Energiedichte. Ideal für Rekuperation in Fahrzeugen (Bremsenergie) oder
-                    zum Glätten von kurzfristigen Lastspitzen im Netz. Sie überstehen Millionen von Ladezyklen.
-                </p>
+
+            <div class="tech-showcase">
+                <img src="https://placehold.co/1200x500?text=Superkondensator" alt="Supercap" class="responsive-img"
+                    style="margin-bottom: 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+                <div class="tech-showcase-content">
+                    <span class="tech-label">Beispieltechnologie</span>
+                    <h3>Superkondensatoren (Supercaps)</h3>
+                    <p>
+                        Ideal für Anwendungen, bei denen kurzzeitig extrem viel Leistung benötigt wird (z.B.
+                        Bremsenergierückgewinnung in Bussen/Bahnen).
+                    </p>
+                    <div class="tech-grid">
+                        <div>
+                            <h4>Funktionsweise</h4>
+                            <p style="font-size: 0.95rem; opacity: 0.8;">
+                                Energiespeicherung erfolgt rein elektrostatisch durch Ladungstrennung an der
+                                Helmholtz-Doppelschicht.
+                                Da keine chemische Reaktion stattfindet, können sie millionenfach geladen werden.
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Eigenschaften</h4>
+                            <ul style="padding-left: 1.5rem; font-size: 0.95rem; opacity: 0.8; margin-top: 0.5rem;">
+                                <li><strong>Leistung:</strong> Extrem hoch (Power Density)</li>
+                                <li><strong>Energie:</strong> Sehr gering (Energy Density)</li>
+                                <li><strong>Lebensdauer:</strong> > 1.000.000 Zyklen [5].</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -241,8 +347,11 @@
             </div>
             <div class="footer-links">
                 <a href="index.html">Home</a>
+                <a href="technologies.html">Technologien</a>
+                <a href="comparison.html">Vergleich</a>
+                <a href="schweiz.html">Schweiz</a>
+                <a href="news.html">News & Zukunft</a>
                 <a href="sources.html">Quellen</a>
-                <a href="#">Impressum</a>
             </div>
             <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2026. Alle Rechte vorbehalten.</p>
         </div>

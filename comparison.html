@@ -25,6 +25,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="technologies.html">Technologien</a></li>
                 <li><a href="comparison.html" class="active">Vergleich</a></li>
+                <li><a href="schweiz.html">Schweiz</a></li>
                 <li><a href="news.html">News & Zukunft</a></li>
                 <li><a href="sources.html">Quellen</a></li>
             </ul>
@@ -33,8 +34,11 @@
 
     <main>
         <section class="hero" style="padding: 3rem 1rem;">
-            <h1>Technologie-Vergleich</h1>
-            <p>Welcher Speicher für welchen Zweck? Ein direkter Vergleich von Effizienz, Kosten und Einsatzgebieten.</p>
+            <h1>Vergleichende Analyse</h1>
+            <p>Evaluierung der Einsatzbereiche: Eine Gegenüberstellung hinsichtlich Effizienz, Kostenstruktur und
+                technischer Reife [1, 16].</p>
+            <img src="https://placehold.co/1200x500?text=Vergleichsdiagramm+Effizienz+vs+Kosten"
+                alt="Vergleichsdiagramm" class="responsive-img" style="margin-top: 2rem;">
         </section>
 
         <section>
@@ -43,88 +47,96 @@
                     <thead>
                         <tr>
                             <th>Technologie</th>
-                            <th>Wirkungsgrad</th>
+                            <th>Wirkungsgrad [η]</th>
                             <th>Energiedichte</th>
                             <th>Lebensdauer</th>
-                            <th>Hauptanwendung</th>
+                            <th>Primäre Applikation</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Pumpspeicher</strong></td>
-                            <td>70 - 85%</td>
+                            <td><strong>Pumpspeicher (PHS)</strong></td>
+                            <td>70 - 85% [16]</td>
                             <td>Niedrig</td>
                             <td>> 50 Jahre</td>
-                            <td>Tagesspeicher, Netzregelung</td>
+                            <td>Intraday-Ausgleich, Schwarzstartfähigkeit</td>
                         </tr>
                         <tr>
-                            <td><strong>Li-Ionen Akku</strong></td>
-                            <td>90 - 95%</td>
+                            <td><strong>Li-Ionen Akkumulator</strong></td>
+                            <td>90 - 95% [4]</td>
                             <td>Hoch</td>
                             <td>10 - 20 Jahre</td>
-                            <td>E-Mobilität, Heimspeicher, Netz</td>
+                            <td>Elektromobilität, Frequenzregelung (PRL)</td>
                         </tr>
                         <tr>
-                            <td><strong>Wasserstoff (P2G)</strong></td>
-                            <td>30 - 45%</td>
-                            <td>Sehr Hoch (chemisch)</td>
+                            <td><strong>Power-to-Gas (H₂)</strong></td>
+                            <td>30 - 45% [11]</td>
+                            <td>Sehr Hoch</td>
                             <td>Technologieabh.</td>
-                            <td>Saisonal, Industrie, Langzeit</td>
+                            <td>Saisonale Speicherung, stoffliche Nutzung</td>
                         </tr>
                         <tr>
-                            <td><strong>Redox-Flow</strong></td>
-                            <td>70 - 80%</td>
+                            <td><strong>Redox-Flow-Batterie</strong></td>
+                            <td>70 - 80% [5]</td>
                             <td>Mittel</td>
                             <td>> 20 Jahre</td>
-                            <td>Großspeicher stationär</td>
+                            <td>Stationäre Großspeicher, Peak-Shaving</td>
                         </tr>
                         <tr>
-                            <td><strong>Druckluft (CAES)</strong></td>
-                            <td>40 - 70%</td>
+                            <td><strong>Adiabate Druckluft (CAES)</strong></td>
+                            <td>60 - 70% [12]</td>
                             <td>Niedrig</td>
                             <td>> 40 Jahre</td>
-                            <td>Großspeicher, Minutenreserve</td>
+                            <td>Großtechnische Energiespeicherung</td>
                         </tr>
                         <tr>
-                            <td><strong>Superkondensator</strong></td>
-                            <td>> 95%</td>
+                            <td><strong>Superkondensatoren</strong></td>
+                            <td>> 95% [5]</td>
                             <td>Sehr Niedrig</td>
                             <td>> 20 Jahre</td>
-                            <td>Sekundenreserve, Spitzenlast</td>
+                            <td>Kurzzeitspeicher, Lastspitzenglättung</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.7;">
-                *Werte sind Durchschnittswerte und können je nach technischer Ausführung variieren.
+                *Datenbasierte Durchschnittswerte. Wirkungsgrade beziehen sich auf den gesamten Zyklus (Round-Trip
+                Efficiency).
             </p>
         </section>
 
         <section style="margin-top: 4rem;">
-            <h2 class="section-title">Vor- und Nachteile</h2>
+            <h2 class="section-title">Technologische Differenzierung</h2>
             <div class="card-grid">
                 <div class="card">
                     <h3 style="color: var(--primary-color);">Kurzzeitspeicher</h3>
                     <p><strong>(Batterien, Schwungräder, Supercaps)</strong></p>
                     <ul style="padding-left: 1.5rem; margin-bottom: 2rem;">
-                        <li style="margin-bottom: 0.5rem; color: #2ecc71;">Extrem schnelle Reaktionszeit (Millisekunden)
+                        <li style="margin-bottom: 0.5rem; color: #2ecc71;">Hohe Leistungsgradienten und schnelle
+                            Reaktionszeiten (Primärregelleistung) [3].
                         </li>
-                        <li style="margin-bottom: 0.5rem; color: #2ecc71;">Hohe Wirkungsgrade</li>
-                        <li style="margin-bottom: 0.5rem; color: #e74c3c;">Begrenzte Kapazität (Selbstentladung, Kosten)
+                        <li style="margin-bottom: 0.5rem; color: #2ecc71;">Exzellente Round-Trip-Wirkungsgrade (>90%)
+                            [4].
                         </li>
-                        <li style="margin-bottom: 0.5rem; color: #e74c3c;">Oft ressourcenintensiv (Lithium, Kobalt)</li>
+                        <li style="margin-bottom: 0.5rem; color: #e74c3c;">Limitierte Energiedichte führt zu hohen
+                            kapazitiven Kosten (€/kWh) [2].
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #e74c3c;">Ressourcenkritikalität bei aktiven
+                            Materialien (Lithium, Kobalt etc.) [6].</li>
                     </ul>
                 </div>
                 <div class="card">
                     <h3 style="color: var(--secondary-color);">Langzeitspeicher</h3>
                     <p><strong>(Wasserstoff, Methan, Pumpspeicher)</strong></p>
                     <ul style="padding-left: 1.5rem; margin-bottom: 2rem;">
-                        <li style="margin-bottom: 0.5rem; color: #2ecc71;">Entkopplung von Leistung und Kapazität</li>
-                        <li style="margin-bottom: 0.5rem; color: #2ecc71;">Saisonale Speicherung möglich (Sommer zu
-                            Winter)</li>
-                        <li style="margin-bottom: 0.5rem; color: #e74c3c;">Geringere Wirkungsgrade (hohe
-                            Umwandlungsverluste)</li>
-                        <li style="margin-bottom: 0.5rem; color: #e74c3c;">Hohe Investitionskosten für Infrastruktur
+                        <li style="margin-bottom: 0.5rem; color: #2ecc71;">Entkopplung von installierter Leistung (MW)
+                            und Speicherkapazität (MWh) [13].</li>
+                        <li style="margin-bottom: 0.5rem; color: #2ecc71;">Ermöglicht saisonale Energieverschiebung zur
+                            Versorgungssicherung [16].</li>
+                        <li style="margin-bottom: 0.5rem; color: #e74c3c;">Signifikante Exergieverluste in der
+                            Konversionskette (insb. PtG) [11].</li>
+                        <li style="margin-bottom: 0.5rem; color: #e74c3c;">Hoher Investitionsbedarf für Infrastruktur
+                            (Kavernen, Pipelines) [15].
                         </li>
                     </ul>
                 </div>
