@@ -548,6 +548,8 @@ footer::before {
 .responsive-img {
     width: 100%;
     height: auto;
+    max-height: 350px;
+    aspect-ratio: 16 / 9;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     display: block;
@@ -569,6 +571,20 @@ footer::before {
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
     font-style: italic;
+}
+
+.card-img-top {
+    margin-bottom: 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    width: 100%;
+}
+
+.tech-showcase {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-top: 2rem;
 }
 
 /* Scroll Reveal Animations */
