@@ -99,6 +99,42 @@
         <section class="hero" style="padding: 3rem 1rem; margin-bottom: 2rem;">
             <h1>Speichertechnologien im Detail</h1>
             <p>Ein tiefer Einblick in die physikalischen und chemischen Prinzipien moderner Energiespeicher.</p>
+
+            <!-- Gallery Navigation -->
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 3rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+
+                <a href="#mech" class="card"
+                    style="text-decoration: none; padding: 1.5rem; text-align: center; align-items: center; justify-content: center; gap: 1rem; cursor: pointer;">
+                    <i class="fa-solid fa-water" style="font-size: 2rem; color: var(--primary-color);"></i>
+                    <span style="font-weight: 600; color: var(--secondary-color);">Mechanisch</span>
+                </a>
+
+                <a href="#electro" class="card"
+                    style="text-decoration: none; padding: 1.5rem; text-align: center; align-items: center; justify-content: center; gap: 1rem; cursor: pointer;">
+                    <i class="fa-solid fa-battery-full" style="font-size: 2rem; color: var(--primary-color);"></i>
+                    <span style="font-weight: 600; color: var(--secondary-color);">Elektrochemisch</span>
+                </a>
+
+                <a href="#chem" class="card"
+                    style="text-decoration: none; padding: 1.5rem; text-align: center; align-items: center; justify-content: center; gap: 1rem; cursor: pointer;">
+                    <i class="fa-solid fa-flask" style="font-size: 2rem; color: var(--primary-color);"></i>
+                    <span style="font-weight: 600; color: var(--secondary-color);">Chemisch</span>
+                </a>
+
+                <a href="#therm" class="card"
+                    style="text-decoration: none; padding: 1.5rem; text-align: center; align-items: center; justify-content: center; gap: 1rem; cursor: pointer;">
+                    <i class="fa-solid fa-fire" style="font-size: 2rem; color: var(--primary-color);"></i>
+                    <span style="font-weight: 600; color: var(--secondary-color);">Thermisch</span>
+                </a>
+
+                <a href="#elec" class="card"
+                    style="text-decoration: none; padding: 1.5rem; text-align: center; align-items: center; justify-content: center; gap: 1rem; cursor: pointer;">
+                    <i class="fa-solid fa-bolt-lightning" style="font-size: 2rem; color: var(--primary-color);"></i>
+                    <span style="font-weight: 600; color: var(--secondary-color);">Elektrisch</span>
+                </a>
+
+            </div>
         </section>
 
         <!-- Mechanical Storage -->
@@ -145,6 +181,39 @@
                                 <li><strong>Wirkungsgrad:</strong> 70 - 85% (Round-Trip) [2]</li>
                                 <li><strong>Lebensdauer:</strong> > 50 Jahre (sehr langlebig) [1]</li>
                                 <li><strong>Limitierung:</strong> Abhängig von Topografie (Berge/Täler) [3]</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Added CAES from Comparison data [12] -->
+            <div class="tech-showcase" style="margin-top: 3rem;">
+                <img src="https://placehold.co/1200x500?text=Druckluftspeicher+(CAES)" alt="Druckluftspeicher"
+                    class="responsive-img"
+                    style="margin-bottom: 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+                <div class="tech-showcase-content">
+                    <span class="tech-label" style="background-color: var(--secondary-color);">Alternative</span>
+                    <h3>Adiabate Druckluftspeicher (CAES)</h3>
+                    <p>
+                        Druckluftspeicher nutzen überschüssigen Strom, um Luft in unterirdische Hohlräume (Kavernen) zu
+                        pressen. Bei Bedarf wird die Luft entspannt und treibt Turbinen an.
+                    </p>
+                    <div class="tech-grid">
+                        <div>
+                            <h4>Funktionsweise</h4>
+                            <p style="font-size: 0.95rem; opacity: 0.8;">
+                                Das "adiabate" Verfahren speichert auch die bei der Kompression entstehende Wärme, um
+                                den Wirkungsgrad zu steigern. Ohne Wärmespeicherung müsste beim Entspannen fossil
+                                zugeheizt werden [12].
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Eigenschaften</h4>
+                            <ul style="padding-left: 1.5rem; font-size: 0.95rem; opacity: 0.8; margin-top: 0.5rem;">
+                                <li><strong>Wirkungsgrad:</strong> 60 - 70% [12]</li>
+                                <li><strong>Lebensdauer:</strong> > 40 Jahre [12]</li>
+                                <li><strong>Einsatz:</strong> Großtechnische Energiespeicherung</li>
                             </ul>
                         </div>
                     </div>
@@ -199,6 +268,61 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Sub-categories Grid -->
+            <h3 style="margin-top: 3rem; margin-bottom: 1.5rem; color: var(--secondary-color);">Weitere Varianten &
+                Zukunft</h3>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+
+                <!-- LFP Card -->
+                <div class="tech-showcase" style="margin-top: 0;">
+                    <div class="tech-showcase-content">
+                        <span class="tech-label" style="background-color: var(--secondary-color);">Stationär</span>
+                        <h3>LFP & Second-Life</h3>
+                        <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 1rem;">
+                            <strong>Lithium-Eisenphosphat:</strong> Verzicht auf Kobalt, thermisch stabil, zyklenfest.
+                            Ideal für Heimspeicher und Industrie [18].
+                        </p>
+                        <p style="font-size: 0.95rem; opacity: 0.8;">
+                            <strong>Second-Life:</strong> Weiterverwendung alter E-Auto-Akkus verbessert die Ökobilanz
+                            massiv [9].
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Redox Flow Card -->
+                <div class="tech-showcase" style="margin-top: 0;">
+                    <div class="tech-showcase-content">
+                        <span class="tech-label" style="background-color: var(--secondary-color);">Großspeicher</span>
+                        <h3>Redox-Flow</h3>
+                        <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 1rem;">
+                            Flüssige Elektrolyte in Tanks. Kapazität (Tank) und Leistung (Zelle) sind getrennt
+                            skalierbar.
+                        </p>
+                        <ul style="padding-left: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
+                            <li>Wirkungsgrad: 70-80% [5]</li>
+                            <li>Kein Brandrisiko, sehr langlebig (>20 Jahre)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Future Tech Card -->
+                <div class="tech-showcase" style="margin-top: 0;">
+                    <div class="tech-showcase-content">
+                        <span class="tech-label" style="background-color: #8e44ad;">Zukunft</span>
+                        <h3>Natrium & Festkörper</h3>
+                        <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 1rem;">
+                            <strong>Natrium-Ionen:</strong> Basieren auf Salz, günstig und verfügbar [15].
+                        </p>
+                        <p style="font-size: 0.95rem; opacity: 0.8;">
+                            <strong>Festkörper:</strong> Fester Elektrolyt für maximale Sicherheit und Energiedichte
+                            [6].
+                        </p>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
         <!-- Chemical Storage -->
@@ -243,7 +367,9 @@
                                 <li><strong>Kapazität:</strong> Nahezu unbegrenzt skalierbar [11]</li>
                                 <li><strong>Wirkungsgrad:</strong> Gering (ca. 40% Strom-zu-Strom) [15]</li>
                                 <li><strong>Vorteil:</strong> Einzige Lösung für Sektorenkopplung (Chemie, Stahl,
-                                    Verkehr) [8].</li>
+                                    Verkehr) und saisonale Speicherung [8].</li>
+                                <li><strong>Infrastruktur:</strong> Nutzung existierender Gaspipelines für Transport
+                                    geplant [8].</li>
                             </ul>
                         </div>
                     </div>

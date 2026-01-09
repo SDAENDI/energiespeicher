@@ -291,7 +291,7 @@
             
             <button class="close-menu" id="close-menu-btn">ESC</button>
             
-            <h1 class="menu-title">&#127918; RETRO GAMES</h1>
+            <h1 class="menu-title">&#127918;GAMES</h1>
             
             <div class="game-grid">
                 <div class="game-card" data-game="snake"><div class="game-card-title">&#128013; SNAKE</div></div>
@@ -1451,16 +1451,16 @@
     }
 
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-// BREAKOUT GAME - ENHANCED WITH POWER-UPS, WORLDS, MULTI-BALL - ULTIMATE
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+    // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+    // BREAKOUT GAME - ENHANCED WITH POWER-UPS, WORLDS, MULTI-BALL - ULTIMATE
+    // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-function launchBreakoutGame() {
-    if (document.getElementById('breakout-game-container')) return;
+    function launchBreakoutGame() {
+        if (document.getElementById('breakout-game-container')) return;
 
-    const gameContainer = document.createElement('div');
-    gameContainer.id = 'breakout-game-container';
-    gameContainer.innerHTML = `
+        const gameContainer = document.createElement('div');
+        gameContainer.id = 'breakout-game-container';
+        gameContainer.innerHTML = `
             <style>
                 #breakout-game-container {
                     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
@@ -1533,510 +1533,510 @@ function launchBreakoutGame() {
             </div>
         `;
 
-    document.body.appendChild(gameContainer);
-    gameContainer.appendChild(createGameSwitcher('breakout'));
+        document.body.appendChild(gameContainer);
+        gameContainer.appendChild(createGameSwitcher('breakout'));
 
-    const canvas = document.getElementById('breakout-canvas');
-    const ctx = canvas.getContext('2d');
+        const canvas = document.getElementById('breakout-canvas');
+        const ctx = canvas.getContext('2d');
 
-    // Game state
-    let paddleW = 80, paddleH = 12;
-    let paddleX = (canvas.width - paddleW) / 2;
-    let balls = [];
-    let powerups = [];
-    let score = 0, lives = 3, world = 1, level = 1;
-    let gameLoop, gameRunning = false;
-    let bricks = [];
-    // Adjusted brick size for 600px width (10 columns)
-    // 600px - 20px padding = 580px / 10 = 58px per block space
-    // block width 54px + 4px gap
-    const brickCols = 10;
-    const brickGap = 4;
-    const brickW = (canvas.width - 20 - (brickCols - 1) * brickGap) / brickCols; // ~54px
-    const brickH = 15;
-    const brickTop = 60, brickLeft = 10;
+        // Game state
+        let paddleW = 80, paddleH = 12;
+        let paddleX = (canvas.width - paddleW) / 2;
+        let balls = [];
+        let powerups = [];
+        let score = 0, lives = 3, world = 1, level = 1;
+        let gameLoop, gameRunning = false;
+        let bricks = [];
+        // Adjusted brick size for 600px width (10 columns)
+        // 600px - 20px padding = 580px / 10 = 58px per block space
+        // block width 54px + 4px gap
+        const brickCols = 10;
+        const brickGap = 4;
+        const brickW = (canvas.width - 20 - (brickCols - 1) * brickGap) / brickCols; // ~54px
+        const brickH = 15;
+        const brickTop = 60, brickLeft = 10;
 
-    // Power-up types
-    const POWERUP_TYPES = {
-        SPLIT: { color: '#FF00FF', icon: '\u26A1', text: 'SPLIT BALL', effect: 'split' },
-        MULTI: { color: '#00FFFF', icon: '\u2795', text: 'MULTI BALL', effect: 'multi' },
-        LIFE: { color: '#00FF00', icon: '\u2764\uFE0F', text: 'EXTRA LIFE', effect: 'life' },
-        BIG: { color: '#FFA500', icon: '\u2194\uFE0F', text: 'BIG PADDLE', effect: 'paddle' }
-    };
+        // Power-up types
+        const POWERUP_TYPES = {
+            SPLIT: { color: '#FF00FF', icon: '\u26A1', text: 'SPLIT BALL', effect: 'split' },
+            MULTI: { color: '#00FFFF', icon: '\u2795', text: 'MULTI BALL', effect: 'multi' },
+            LIFE: { color: '#00FF00', icon: '\u2764\uFE0F', text: 'EXTRA LIFE', effect: 'life' },
+            BIG: { color: '#FFA500', icon: '\u2194\uFE0F', text: 'BIG PADDLE', effect: 'paddle' }
+        };
 
-    // Worlds Config
-    const WORLDS = {
-        1: { name: 'Classic', color: '#4CAF50', levels: 4, pattern: 'classic' },
-        2: { name: 'Nature', color: '#8BC34A', levels: 4, pattern: 'organic' },
-        3: { name: 'Ocean', color: '#03A9F4', levels: 4, pattern: 'waves' },
-        4: { name: 'Volcanic', color: '#FF5722', levels: 4, pattern: 'pyramid' },
-        5: { name: 'Iron', color: '#9E9E9E', levels: 4, pattern: 'fortress' },
-        6: { name: 'Glacier', color: '#00BCD4', levels: 4, pattern: 'ice' },
-        7: { name: 'Neon', color: '#E91E63', levels: 4, pattern: 'neon' },
-        8: { name: 'Retro', color: '#FFC107', levels: 4, pattern: 'retro' },
-        9: { name: 'Chaos', color: '#9C27B0', levels: 4, pattern: 'random' },
-        10: { name: 'Impossible', color: '#F44336', levels: 4, pattern: 'hard' }
-    };
+        // Worlds Config
+        const WORLDS = {
+            1: { name: 'Classic', color: '#4CAF50', levels: 4, pattern: 'classic' },
+            2: { name: 'Nature', color: '#8BC34A', levels: 4, pattern: 'organic' },
+            3: { name: 'Ocean', color: '#03A9F4', levels: 4, pattern: 'waves' },
+            4: { name: 'Volcanic', color: '#FF5722', levels: 4, pattern: 'pyramid' },
+            5: { name: 'Iron', color: '#9E9E9E', levels: 4, pattern: 'fortress' },
+            6: { name: 'Glacier', color: '#00BCD4', levels: 4, pattern: 'ice' },
+            7: { name: 'Neon', color: '#E91E63', levels: 4, pattern: 'neon' },
+            8: { name: 'Retro', color: '#FFC107', levels: 4, pattern: 'retro' },
+            9: { name: 'Chaos', color: '#9C27B0', levels: 4, pattern: 'random' },
+            10: { name: 'Impossible', color: '#F44336', levels: 4, pattern: 'hard' }
+        };
 
-    function createBall(x, y, dx, dy) {
-        return { x, y, dx, dy, speed: 4.5 + (world * 0.3) + (level * 0.2) };
-    }
-
-    function initLevel() {
-        const worldInfo = WORLDS[world];
-        // Increase rows for higher worlds
-        const baseRows = 4 + Math.floor((world - 1) / 2); // 4 to 8 rows
-        const rows = Math.min(baseRows + Math.floor((level - 1) / 2), 12);
-
-        bricks = [];
-        for (let r = 0; r < rows; r++) {
-            bricks[r] = [];
-            for (let c = 0; c < brickCols; c++) {
-                let status = 1; // 1=active, 0=broken, -1=indestructible, 2=hard
-
-                // Pattern Generation Logic
-                const p = worldInfo.pattern;
-
-                if (p === 'classic') {
-                    if (level % 2 === 0 && (r + c) % 2 === 0) status = 0;
-                }
-                else if (p === 'organic') {
-                    if (Math.sin(r * c) > 0.5) status = 0;
-                    if (r === 0 && c % 3 === 0) status = 2; // Hard blocks
-                }
-                else if (p === 'waves') {
-                    if (r % 2 === 0 && c % 2 !== 0) status = 0;
-                }
-                else if (p === 'pyramid') {
-                    if (c < r || c >= brickCols - r) status = 0;
-                    if (level > 2 && r === 0) status = 2;
-                }
-                else if (p === 'fortress') {
-                    if (r % 2 === 0 && c % 2 === 0) status = 2; // Lots of hard blocks
-                    if (level > 2 && r === rows - 1 && c % 3 === 0) status = -1; // Indestructible
-                }
-                else if (p === 'ice') {
-                    if (Math.random() > 0.8) status = 2;
-                    if (level > 2 && r % 3 === 0) status = -1;
-                }
-                else if (p === 'neon') {
-                    if ((c + r) % 3 === 0) status = 0;
-                }
-                else if (p === 'retro') {
-                    if (r < 2) status = 2;
-                }
-                else if (p === 'random') {
-                    if (Math.random() > 0.3) status = Math.random() > 0.5 ? 1 : 0;
-                }
-                else if (p === 'hard') {
-                    status = 2;
-                    if (Math.random() > 0.8) status = -1;
-                }
-
-                // Ensure at least some blocks are breakable
-                if (status === -1 && Math.random() > 0.3) status = 2;
-
-                bricks[r][c] = {
-                    x: 0, y: 0,
-                    status: status,
-                    maxHits: status === 2 ? 2 : 1
-                };
-            }
+        function createBall(x, y, dx, dy) {
+            return { x, y, dx, dy, speed: 4.5 + (world * 0.3) + (level * 0.2) };
         }
 
-        balls = [createBall(canvas.width / 2, canvas.height - 50, (Math.random() - 0.5) * 4, -5)];
-        powerups = [];
-        paddleX = (canvas.width - paddleW) / 2;
-        // Paddle shrinks in higher worlds
-        paddleW = Math.max(50, 80 - (world * 3));
-    }
+        function initLevel() {
+            const worldInfo = WORLDS[world];
+            // Increase rows for higher worlds
+            const baseRows = 4 + Math.floor((world - 1) / 2); // 4 to 8 rows
+            const rows = Math.min(baseRows + Math.floor((level - 1) / 2), 12);
 
-    function drawBricks() {
-        const colors = [
-            '#f44336', '#e91e63', '#9c27b0', '#673ab7',
-            '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4',
-            '#009688', '#4caf50', '#8bc34a', '#cddc39'
-        ];
+            bricks = [];
+            for (let r = 0; r < rows; r++) {
+                bricks[r] = [];
+                for (let c = 0; c < brickCols; c++) {
+                    let status = 1; // 1=active, 0=broken, -1=indestructible, 2=hard
 
-        for (let r = 0; r < bricks.length; r++) {
-            for (let c = 0; c < bricks[r].length; c++) {
-                const b = bricks[r][c];
-                if (b.status !== 0) {
-                    const bX = c * (brickW + brickGap) + brickLeft;
-                    const bY = r * (brickH + brickGap) + brickTop;
-                    b.x = bX; b.y = bY;
+                    // Pattern Generation Logic
+                    const p = worldInfo.pattern;
 
-                    if (b.status === -1) {
-                        // Indestructible
-                        ctx.fillStyle = '#555';
-                        ctx.strokeStyle = '#888';
-                        ctx.lineWidth = 2;
-                        ctx.fillRect(bX, bY, brickW, brickH);
-                        ctx.strokeRect(bX, bY, brickW, brickH);
-
-                        // Rivet details
-                        ctx.fillStyle = '#aaa';
-                        ctx.beginPath(); ctx.arc(bX + 4, bY + 4, 2, 0, Math.PI * 2); ctx.fill();
-                        ctx.beginPath(); ctx.arc(bX + brickW - 4, bY + 4, 2, 0, Math.PI * 2); ctx.fill();
-                        ctx.beginPath(); ctx.arc(bX + 4, bY + brickH - 4, 2, 0, Math.PI * 2); ctx.fill();
-                        ctx.beginPath(); ctx.arc(bX + brickW - 4, bY + brickH - 4, 2, 0, Math.PI * 2); ctx.fill();
-
-                    } else {
-                        // Normal or Hard
-                        ctx.fillStyle = b.status === 2 ? '#DDDDDD' : colors[(r + world) % colors.length];
-                        ctx.fillRect(bX, bY, brickW, brickH);
-
-                        // Shine effect
-                        ctx.fillStyle = 'rgba(255,255,255,0.2)';
-                        ctx.fillRect(bX, bY, brickW, brickH / 2);
-
-                        if (b.status === 2) {
-                            // Hard block indicator
-                            ctx.strokeStyle = '#000';
-                            ctx.lineWidth = 1;
-                            ctx.strokeRect(bX + 2, bY + 2, brickW - 4, brickH - 4);
-                        }
+                    if (p === 'classic') {
+                        if (level % 2 === 0 && (r + c) % 2 === 0) status = 0;
                     }
+                    else if (p === 'organic') {
+                        if (Math.sin(r * c) > 0.5) status = 0;
+                        if (r === 0 && c % 3 === 0) status = 2; // Hard blocks
+                    }
+                    else if (p === 'waves') {
+                        if (r % 2 === 0 && c % 2 !== 0) status = 0;
+                    }
+                    else if (p === 'pyramid') {
+                        if (c < r || c >= brickCols - r) status = 0;
+                        if (level > 2 && r === 0) status = 2;
+                    }
+                    else if (p === 'fortress') {
+                        if (r % 2 === 0 && c % 2 === 0) status = 2; // Lots of hard blocks
+                        if (level > 2 && r === rows - 1 && c % 3 === 0) status = -1; // Indestructible
+                    }
+                    else if (p === 'ice') {
+                        if (Math.random() > 0.8) status = 2;
+                        if (level > 2 && r % 3 === 0) status = -1;
+                    }
+                    else if (p === 'neon') {
+                        if ((c + r) % 3 === 0) status = 0;
+                    }
+                    else if (p === 'retro') {
+                        if (r < 2) status = 2;
+                    }
+                    else if (p === 'random') {
+                        if (Math.random() > 0.3) status = Math.random() > 0.5 ? 1 : 0;
+                    }
+                    else if (p === 'hard') {
+                        status = 2;
+                        if (Math.random() > 0.8) status = -1;
+                    }
+
+                    // Ensure at least some blocks are breakable
+                    if (status === -1 && Math.random() > 0.3) status = 2;
+
+                    bricks[r][c] = {
+                        x: 0, y: 0,
+                        status: status,
+                        maxHits: status === 2 ? 2 : 1
+                    };
                 }
             }
+
+            balls = [createBall(canvas.width / 2, canvas.height - 50, (Math.random() - 0.5) * 4, -5)];
+            powerups = [];
+            paddleX = (canvas.width - paddleW) / 2;
+            // Paddle shrinks in higher worlds
+            paddleW = Math.max(50, 80 - (world * 3));
         }
-    }
 
-    function spawnPowerup(x, y) {
-        if (Math.random() > 0.12) return; // 12% chance
-        const keys = Object.keys(POWERUP_TYPES);
-        const key = keys[Math.floor(Math.random() * keys.length)];
-        powerups.push({ x, y, type: key, dy: 2.5 });
-    }
+        function drawBricks() {
+            const colors = [
+                '#f44336', '#e91e63', '#9c27b0', '#673ab7',
+                '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4',
+                '#009688', '#4caf50', '#8bc34a', '#cddc39'
+            ];
 
-    function applyPowerup(key) {
-        const p = POWERUP_TYPES[key];
-        const info = document.createElement('div');
-        info.className = 'powerup-info';
-        info.innerHTML = `${p.icon} ${p.text}`;
-        info.style.color = p.color;
-        gameContainer.appendChild(info);
-        setTimeout(() => info.remove(), 1000);
-
-        if (p.effect === 'split') {
-            const newBalls = [];
-            balls.forEach(b => {
-                newBalls.push(b);
-                newBalls.push(createBall(b.x, b.y, b.dx * 1.2, b.dy)); // Slightly different angles
-                newBalls.push(createBall(b.x, b.y, b.dx * 0.8, b.dy));
-            });
-            balls = newBalls;
-        } else if (p.effect === 'multi') {
-            for (let i = 0; i < 3; i++) {
-                balls.push(createBall(paddleX + paddleW / 2, canvas.height - 50, (Math.random() - 0.5) * 8, -5));
-            }
-        } else if (p.effect === 'life') {
-            lives++;
-            updateDisplay();
-        } else if (p.effect === 'paddle') {
-            paddleW += 30;
-            setTimeout(() => paddleW -= 30, 8000); // Temporary
-        }
-        updateDisplay();
-    }
-
-    function updateDisplay() {
-        document.getElementById('breakout-score').textContent = score;
-        document.getElementById('breakout-world').textContent = world;
-        document.getElementById('breakout-level').textContent = level;
-        document.getElementById('breakout-lives').textContent = lives;
-        document.getElementById('breakout-balls').textContent = balls.length;
-    }
-
-    function showLevelBanner(text) {
-        const banner = document.createElement('div');
-        banner.className = 'level-banner';
-        banner.innerHTML = text || `<span style="font-size:1.5rem">WELT ${world}</span><br>LEVEL ${level}`;
-        gameContainer.appendChild(banner);
-        setTimeout(() => banner.remove(), 2000);
-    }
-
-    function nextLevel() {
-        level++;
-        if (level > WORLDS[world].levels) {
-            level = 1;
-            world++;
-            if (world > 10) {
-                showVictory();
-                return;
-            }
-        }
-        updateDisplay();
-        showLevelBanner();
-        initLevel();
-        // Pause briefly
-        gameRunning = false;
-        setTimeout(() => gameRunning = true, 1500);
-    }
-
-    function showVictory() {
-        gameRunning = false;
-        HighscoreManager.saveScore('breakout', score, `Welt ${world} (Gewonnen)`);
-        const overlay = document.createElement('div');
-        overlay.className = 'breakout-overlay';
-        overlay.innerHTML = `<h2 style="color:#FFD700">ðŸ† LEGENDARY!</h2><p style="color:#fff">Du hast alle 10 Welten bezwungen!<br>Finaler Score: ${score}</p><button class="breakout-btn" id="breakout-restart">NEUES SPIEL</button>`;
-        gameContainer.appendChild(overlay);
-        document.getElementById('breakout-restart').addEventListener('click', restart);
-    }
-
-    function showGameOver() {
-        gameRunning = false;
-        HighscoreManager.saveScore('breakout', score, `Welt ${world} Level ${level}`);
-        const overlay = document.createElement('div');
-        overlay.className = 'breakout-overlay';
-        overlay.style.borderColor = '#f44336';
-        overlay.innerHTML = `<h2 style="color:#f44336">GAME OVER</h2><p style="color:#fff">Score: ${score}<br>Welt ${world} - Level ${level}</p><button class="breakout-btn" id="breakout-restart">NOCHMAL</button>`;
-        gameContainer.appendChild(overlay);
-        document.getElementById('breakout-restart').addEventListener('click', restart);
-    }
-
-    function restart() {
-        document.querySelectorAll('.breakout-overlay').forEach(o => o.remove());
-        score = 0; lives = 3; level = 1;
-        // Reset to World 1 on full restart? Or current world? Let's do current.
-        // world = 1; 
-        updateDisplay();
-        initLevel();
-        showLevelBanner();
-        gameRunning = true;
-    }
-
-    function update() {
-        if (!gameRunning) return;
-
-        // Updated collision logic for smoother physics
-        for (let i = balls.length - 1; i >= 0; i--) {
-            let b = balls[i];
-            b.x += b.dx;
-            b.y += b.dy;
-
-            // Walls
-            if (b.x < 6 || b.x > canvas.width - 6) b.dx = -b.dx;
-            if (b.y < 6) b.dy = -b.dy;
-
-            // Paddle
-            if (b.y > canvas.height - paddleH - 12 && b.y < canvas.height - 2 &&
-                b.x > paddleX - 5 && b.x < paddleX + paddleW + 5) {
-
-                b.dy = -Math.abs(b.dy);
-                // Add spin based on where hit
-                const hitPoint = b.x - (paddleX + paddleW / 2);
-                b.dx = hitPoint * 0.15; // Sharper angles
-
-                // Min vertical speed to prevent horizontal loops
-                if (Math.abs(b.dy) < 3) b.dy = b.dy < 0 ? -3 : 3;
-            }
-
-            // Floor
-            if (b.y > canvas.height + 10) {
-                balls.splice(i, 1);
-            }
-
-            // Bricks (Improved collision)
-            let hitIdx = -1;
-            // Optimization: Only check bricks near ball? No, simple loop for now
             for (let r = 0; r < bricks.length; r++) {
                 for (let c = 0; c < bricks[r].length; c++) {
-                    let brick = bricks[r][c];
-                    if (brick.status !== 0) {
-                        if (b.x > brick.x && b.x < brick.x + brickW &&
-                            b.y > brick.y && b.y < brick.y + brickH) {
+                    const b = bricks[r][c];
+                    if (b.status !== 0) {
+                        const bX = c * (brickW + brickGap) + brickLeft;
+                        const bY = r * (brickH + brickGap) + brickTop;
+                        b.x = bX; b.y = bY;
 
-                            // Standard reflection
-                            // Determine closest side? Simplified for now: just flip Y
-                            // To do proper: check previous position
-                            const prevY = b.y - b.dy;
-                            if (prevY < brick.y || prevY > brick.y + brickH) b.dy = -b.dy;
-                            else b.dx = -b.dx;
+                        if (b.status === -1) {
+                            // Indestructible
+                            ctx.fillStyle = '#555';
+                            ctx.strokeStyle = '#888';
+                            ctx.lineWidth = 2;
+                            ctx.fillRect(bX, bY, brickW, brickH);
+                            ctx.strokeRect(bX, bY, brickW, brickH);
 
-                            if (brick.status > 0) {
-                                brick.status--;
-                                score += (10 + world * 2) * (brick.status === 0 ? 1 : 0.5);
-                                if (brick.status === 0) spawnPowerup(brick.x + brickW / 2, brick.y + brickH);
+                            // Rivet details
+                            ctx.fillStyle = '#aaa';
+                            ctx.beginPath(); ctx.arc(bX + 4, bY + 4, 2, 0, Math.PI * 2); ctx.fill();
+                            ctx.beginPath(); ctx.arc(bX + brickW - 4, bY + 4, 2, 0, Math.PI * 2); ctx.fill();
+                            ctx.beginPath(); ctx.arc(bX + 4, bY + brickH - 4, 2, 0, Math.PI * 2); ctx.fill();
+                            ctx.beginPath(); ctx.arc(bX + brickW - 4, bY + brickH - 4, 2, 0, Math.PI * 2); ctx.fill();
+
+                        } else {
+                            // Normal or Hard
+                            ctx.fillStyle = b.status === 2 ? '#DDDDDD' : colors[(r + world) % colors.length];
+                            ctx.fillRect(bX, bY, brickW, brickH);
+
+                            // Shine effect
+                            ctx.fillStyle = 'rgba(255,255,255,0.2)';
+                            ctx.fillRect(bX, bY, brickW, brickH / 2);
+
+                            if (b.status === 2) {
+                                // Hard block indicator
+                                ctx.strokeStyle = '#000';
+                                ctx.lineWidth = 1;
+                                ctx.strokeRect(bX + 2, bY + 2, brickW - 4, brickH - 4);
                             }
-                            // Indestructible bricks just bounce
-                            updateDisplay();
-                            gotoNextBall = true;
-                            break;
                         }
                     }
                 }
-                if (typeof gotoNextBall !== 'undefined') { delete gotoNextBall; break; }
             }
         }
 
-        // Powerups
-        for (let i = powerups.length - 1; i >= 0; i--) {
-            let p = powerups[i];
-            p.y += p.dy;
-            // Hit paddle?
-            if (p.y > canvas.height - paddleH - 12 && p.y < canvas.height &&
-                p.x > paddleX && p.x < paddleX + paddleW) {
-                applyPowerup(p.type);
-                powerups.splice(i, 1);
-            } else if (p.y > canvas.height) {
-                powerups.splice(i, 1);
-            }
+        function spawnPowerup(x, y) {
+            if (Math.random() > 0.12) return; // 12% chance
+            const keys = Object.keys(POWERUP_TYPES);
+            const key = keys[Math.floor(Math.random() * keys.length)];
+            powerups.push({ x, y, type: key, dy: 2.5 });
         }
 
-        // Life lost
-        if (balls.length === 0) {
-            lives--;
+        function applyPowerup(key) {
+            const p = POWERUP_TYPES[key];
+            const info = document.createElement('div');
+            info.className = 'powerup-info';
+            info.innerHTML = `${p.icon} ${p.text}`;
+            info.style.color = p.color;
+            gameContainer.appendChild(info);
+            setTimeout(() => info.remove(), 1000);
+
+            if (p.effect === 'split') {
+                const newBalls = [];
+                balls.forEach(b => {
+                    newBalls.push(b);
+                    newBalls.push(createBall(b.x, b.y, b.dx * 1.2, b.dy)); // Slightly different angles
+                    newBalls.push(createBall(b.x, b.y, b.dx * 0.8, b.dy));
+                });
+                balls = newBalls;
+            } else if (p.effect === 'multi') {
+                for (let i = 0; i < 3; i++) {
+                    balls.push(createBall(paddleX + paddleW / 2, canvas.height - 50, (Math.random() - 0.5) * 8, -5));
+                }
+            } else if (p.effect === 'life') {
+                lives++;
+                updateDisplay();
+            } else if (p.effect === 'paddle') {
+                paddleW += 30;
+                setTimeout(() => paddleW -= 30, 8000); // Temporary
+            }
             updateDisplay();
-            if (lives <= 0) showGameOver();
-            else balls = [createBall(paddleX + paddleW / 2, canvas.height - 40, 0, -5)];
         }
 
-        // Level Check
-        let allCleared = true;
-        for (let r = 0; r < bricks.length; r++) {
-            for (let c = 0; c < bricks[r].length; c++) {
-                if (bricks[r][c].status > 0) { allCleared = false; break; }
+        function updateDisplay() {
+            document.getElementById('breakout-score').textContent = score;
+            document.getElementById('breakout-world').textContent = world;
+            document.getElementById('breakout-level').textContent = level;
+            document.getElementById('breakout-lives').textContent = lives;
+            document.getElementById('breakout-balls').textContent = balls.length;
+        }
+
+        function showLevelBanner(text) {
+            const banner = document.createElement('div');
+            banner.className = 'level-banner';
+            banner.innerHTML = text || `<span style="font-size:1.5rem">WELT ${world}</span><br>LEVEL ${level}`;
+            gameContainer.appendChild(banner);
+            setTimeout(() => banner.remove(), 2000);
+        }
+
+        function nextLevel() {
+            level++;
+            if (level > WORLDS[world].levels) {
+                level = 1;
+                world++;
+                if (world > 10) {
+                    showVictory();
+                    return;
+                }
             }
+            updateDisplay();
+            showLevelBanner();
+            initLevel();
+            // Pause briefly
+            gameRunning = false;
+            setTimeout(() => gameRunning = true, 1500);
         }
-        if (allCleared) nextLevel();
 
-        draw();
-    }
+        function showVictory() {
+            gameRunning = false;
+            HighscoreManager.saveScore('breakout', score, `Welt ${world} (Gewonnen)`);
+            const overlay = document.createElement('div');
+            overlay.className = 'breakout-overlay';
+            overlay.innerHTML = `<h2 style="color:#FFD700">ðŸ† LEGENDARY!</h2><p style="color:#fff">Du hast alle 10 Welten bezwungen!<br>Finaler Score: ${score}</p><button class="breakout-btn" id="breakout-restart">NEUES SPIEL</button>`;
+            gameContainer.appendChild(overlay);
+            document.getElementById('breakout-restart').addEventListener('click', restart);
+        }
 
-    function draw() {
-        // Trail effect? No, simpler for performance
-        ctx.fillStyle = '#111';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        function showGameOver() {
+            gameRunning = false;
+            HighscoreManager.saveScore('breakout', score, `Welt ${world} Level ${level}`);
+            const overlay = document.createElement('div');
+            overlay.className = 'breakout-overlay';
+            overlay.style.borderColor = '#f44336';
+            overlay.innerHTML = `<h2 style="color:#f44336">GAME OVER</h2><p style="color:#fff">Score: ${score}<br>Welt ${world} - Level ${level}</p><button class="breakout-btn" id="breakout-restart">NOCHMAL</button>`;
+            gameContainer.appendChild(overlay);
+            document.getElementById('breakout-restart').addEventListener('click', restart);
+        }
 
-        drawBricks();
-
-        // Paddle
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = '#4CAF50';
-        ctx.fillStyle = '#4CAF50';
-        ctx.fillRect(paddleX, canvas.height - paddleH - 5, paddleW, paddleH);
-        ctx.shadowBlur = 0;
-
-        // Balls
-        balls.forEach(b => {
-            ctx.fillStyle = '#fff';
-            ctx.beginPath();
-            ctx.arc(b.x, b.y, 6, 0, Math.PI * 2);
-            ctx.fill();
-        });
-
-        // Powerups
-        powerups.forEach(p => {
-            const type = POWERUP_TYPES[p.type];
-            ctx.shadowBlur = 5;
-            ctx.shadowColor = type.color;
-            ctx.fillStyle = type.color;
-            ctx.beginPath(); ctx.arc(p.x, p.y, 9, 0, Math.PI * 2); ctx.fill();
-            ctx.shadowBlur = 0;
-            ctx.fillStyle = '#000';
-            ctx.font = '10px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText(type.icon, p.x, p.y + 3);
-        });
-    }
-
-    // --- Controls ---
-
-    // Mouse Move
-    canvas.addEventListener('mousemove', (e) => {
-        if (!gameRunning) return;
-        const rect = canvas.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left;
-        paddleX = mouseX - paddleW / 2;
-
-        // Clamp
-        if (paddleX < 0) paddleX = 0;
-        if (paddleX > canvas.width - paddleW) paddleX = canvas.width - paddleW;
-    });
-
-    // Touch (basic)
-    canvas.addEventListener('touchmove', (e) => {
-        e.preventDefault();
-        if (!gameRunning) return;
-        const rect = canvas.getBoundingClientRect();
-        const touchX = e.touches[0].clientX - rect.left;
-        paddleX = touchX - paddleW / 2;
-        if (paddleX < 0) paddleX = 0;
-        if (paddleX > canvas.width - paddleW) paddleX = canvas.width - paddleW;
-    }, { passive: false });
-
-    // World Menu Interaction
-    document.querySelectorAll('.world-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            world = parseInt(btn.dataset.world);
-            level = 1;
-            document.getElementById('breakout-menu').style.display = 'none';
-            document.getElementById('breakout-menu').querySelector('.breakout-overlay')?.remove();
-
-            // Reset resume button state
-            const resumeBtn = document.getElementById('resume-btn');
-            if (resumeBtn) resumeBtn.style.display = 'none';
-
+        function restart() {
+            document.querySelectorAll('.breakout-overlay').forEach(o => o.remove());
+            score = 0; lives = 3; level = 1;
+            // Reset to World 1 on full restart? Or current world? Let's do current.
+            // world = 1; 
+            updateDisplay();
             initLevel();
             showLevelBanner();
             gameRunning = true;
-            if (!gameLoop) gameLoop = setInterval(update, 16);
-        });
-    });
-
-    // Open World Menu Button
-    document.getElementById('open-world-menu').addEventListener('click', () => {
-        gameRunning = false;
-        const menu = document.getElementById('breakout-menu');
-        menu.style.display = 'block';
-
-        // Show resume button
-        const resumeBtn = document.getElementById('resume-btn');
-        if (resumeBtn) {
-            resumeBtn.style.display = 'inline-block';
-            resumeBtn.onclick = () => {
-                menu.style.display = 'none';
-                gameRunning = true;
-            };
         }
-    });
 
-    // Keyboard
-    let leftPressed = false, rightPressed = false;
-    document.addEventListener('keydown', breakoutKeyDown);
-    document.addEventListener('keyup', breakoutKeyUp);
+        function update() {
+            if (!gameRunning) return;
 
-    // Keyboard loop
-    let keyInterval = setInterval(() => {
-        if (!gameRunning) return;
-        if (leftPressed && paddleX > 0) paddleX -= 9;
-        if (rightPressed && paddleX < canvas.width - paddleW) paddleX += 9;
-    }, 16);
+            // Updated collision logic for smoother physics
+            for (let i = balls.length - 1; i >= 0; i--) {
+                let b = balls[i];
+                b.x += b.dx;
+                b.y += b.dy;
 
-    function breakoutKeyDown(e) {
-        if (e.key === 'Escape') { closeBreakout(); return; }
-        if (e.key === 'ArrowLeft' || e.key === 'a') leftPressed = true;
-        if (e.key === 'ArrowRight' || e.key === 'd') rightPressed = true;
+                // Walls
+                if (b.x < 6 || b.x > canvas.width - 6) b.dx = -b.dx;
+                if (b.y < 6) b.dy = -b.dy;
+
+                // Paddle
+                if (b.y > canvas.height - paddleH - 12 && b.y < canvas.height - 2 &&
+                    b.x > paddleX - 5 && b.x < paddleX + paddleW + 5) {
+
+                    b.dy = -Math.abs(b.dy);
+                    // Add spin based on where hit
+                    const hitPoint = b.x - (paddleX + paddleW / 2);
+                    b.dx = hitPoint * 0.15; // Sharper angles
+
+                    // Min vertical speed to prevent horizontal loops
+                    if (Math.abs(b.dy) < 3) b.dy = b.dy < 0 ? -3 : 3;
+                }
+
+                // Floor
+                if (b.y > canvas.height + 10) {
+                    balls.splice(i, 1);
+                }
+
+                // Bricks (Improved collision)
+                let hitIdx = -1;
+                // Optimization: Only check bricks near ball? No, simple loop for now
+                for (let r = 0; r < bricks.length; r++) {
+                    for (let c = 0; c < bricks[r].length; c++) {
+                        let brick = bricks[r][c];
+                        if (brick.status !== 0) {
+                            if (b.x > brick.x && b.x < brick.x + brickW &&
+                                b.y > brick.y && b.y < brick.y + brickH) {
+
+                                // Standard reflection
+                                // Determine closest side? Simplified for now: just flip Y
+                                // To do proper: check previous position
+                                const prevY = b.y - b.dy;
+                                if (prevY < brick.y || prevY > brick.y + brickH) b.dy = -b.dy;
+                                else b.dx = -b.dx;
+
+                                if (brick.status > 0) {
+                                    brick.status--;
+                                    score += (10 + world * 2) * (brick.status === 0 ? 1 : 0.5);
+                                    if (brick.status === 0) spawnPowerup(brick.x + brickW / 2, brick.y + brickH);
+                                }
+                                // Indestructible bricks just bounce
+                                updateDisplay();
+                                gotoNextBall = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (typeof gotoNextBall !== 'undefined') { delete gotoNextBall; break; }
+                }
+            }
+
+            // Powerups
+            for (let i = powerups.length - 1; i >= 0; i--) {
+                let p = powerups[i];
+                p.y += p.dy;
+                // Hit paddle?
+                if (p.y > canvas.height - paddleH - 12 && p.y < canvas.height &&
+                    p.x > paddleX && p.x < paddleX + paddleW) {
+                    applyPowerup(p.type);
+                    powerups.splice(i, 1);
+                } else if (p.y > canvas.height) {
+                    powerups.splice(i, 1);
+                }
+            }
+
+            // Life lost
+            if (balls.length === 0) {
+                lives--;
+                updateDisplay();
+                if (lives <= 0) showGameOver();
+                else balls = [createBall(paddleX + paddleW / 2, canvas.height - 40, 0, -5)];
+            }
+
+            // Level Check
+            let allCleared = true;
+            for (let r = 0; r < bricks.length; r++) {
+                for (let c = 0; c < bricks[r].length; c++) {
+                    if (bricks[r][c].status > 0) { allCleared = false; break; }
+                }
+            }
+            if (allCleared) nextLevel();
+
+            draw();
+        }
+
+        function draw() {
+            // Trail effect? No, simpler for performance
+            ctx.fillStyle = '#111';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            drawBricks();
+
+            // Paddle
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#4CAF50';
+            ctx.fillStyle = '#4CAF50';
+            ctx.fillRect(paddleX, canvas.height - paddleH - 5, paddleW, paddleH);
+            ctx.shadowBlur = 0;
+
+            // Balls
+            balls.forEach(b => {
+                ctx.fillStyle = '#fff';
+                ctx.beginPath();
+                ctx.arc(b.x, b.y, 6, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            // Powerups
+            powerups.forEach(p => {
+                const type = POWERUP_TYPES[p.type];
+                ctx.shadowBlur = 5;
+                ctx.shadowColor = type.color;
+                ctx.fillStyle = type.color;
+                ctx.beginPath(); ctx.arc(p.x, p.y, 9, 0, Math.PI * 2); ctx.fill();
+                ctx.shadowBlur = 0;
+                ctx.fillStyle = '#000';
+                ctx.font = '10px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(type.icon, p.x, p.y + 3);
+            });
+        }
+
+        // --- Controls ---
+
+        // Mouse Move
+        canvas.addEventListener('mousemove', (e) => {
+            if (!gameRunning) return;
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            paddleX = mouseX - paddleW / 2;
+
+            // Clamp
+            if (paddleX < 0) paddleX = 0;
+            if (paddleX > canvas.width - paddleW) paddleX = canvas.width - paddleW;
+        });
+
+        // Touch (basic)
+        canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            if (!gameRunning) return;
+            const rect = canvas.getBoundingClientRect();
+            const touchX = e.touches[0].clientX - rect.left;
+            paddleX = touchX - paddleW / 2;
+            if (paddleX < 0) paddleX = 0;
+            if (paddleX > canvas.width - paddleW) paddleX = canvas.width - paddleW;
+        }, { passive: false });
+
+        // World Menu Interaction
+        document.querySelectorAll('.world-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                world = parseInt(btn.dataset.world);
+                level = 1;
+                document.getElementById('breakout-menu').style.display = 'none';
+                document.getElementById('breakout-menu').querySelector('.breakout-overlay')?.remove();
+
+                // Reset resume button state
+                const resumeBtn = document.getElementById('resume-btn');
+                if (resumeBtn) resumeBtn.style.display = 'none';
+
+                initLevel();
+                showLevelBanner();
+                gameRunning = true;
+                if (!gameLoop) gameLoop = setInterval(update, 16);
+            });
+        });
+
+        // Open World Menu Button
+        document.getElementById('open-world-menu').addEventListener('click', () => {
+            gameRunning = false;
+            const menu = document.getElementById('breakout-menu');
+            menu.style.display = 'block';
+
+            // Show resume button
+            const resumeBtn = document.getElementById('resume-btn');
+            if (resumeBtn) {
+                resumeBtn.style.display = 'inline-block';
+                resumeBtn.onclick = () => {
+                    menu.style.display = 'none';
+                    gameRunning = true;
+                };
+            }
+        });
+
+        // Keyboard
+        let leftPressed = false, rightPressed = false;
+        document.addEventListener('keydown', breakoutKeyDown);
+        document.addEventListener('keyup', breakoutKeyUp);
+
+        // Keyboard loop
+        let keyInterval = setInterval(() => {
+            if (!gameRunning) return;
+            if (leftPressed && paddleX > 0) paddleX -= 9;
+            if (rightPressed && paddleX < canvas.width - paddleW) paddleX += 9;
+        }, 16);
+
+        function breakoutKeyDown(e) {
+            if (e.key === 'Escape') { closeBreakout(); return; }
+            if (e.key === 'ArrowLeft' || e.key === 'a') leftPressed = true;
+            if (e.key === 'ArrowRight' || e.key === 'd') rightPressed = true;
+        }
+        function breakoutKeyUp(e) {
+            if (e.key === 'ArrowLeft' || e.key === 'a') leftPressed = false;
+            if (e.key === 'ArrowRight' || e.key === 'd') rightPressed = false;
+        }
+
+        function closeBreakout() {
+            clearInterval(gameLoop);
+            clearInterval(keyInterval);
+            gameContainer.classList.add('closing');
+            setTimeout(() => gameContainer.remove(), 300);
+            document.removeEventListener('keydown', breakoutKeyDown);
+            document.removeEventListener('keyup', breakoutKeyUp);
+        }
+        document.getElementById('close-breakout').addEventListener('click', closeBreakout);
+
+        // Start initial state
+        draw();
     }
-    function breakoutKeyUp(e) {
-        if (e.key === 'ArrowLeft' || e.key === 'a') leftPressed = false;
-        if (e.key === 'ArrowRight' || e.key === 'd') rightPressed = false;
-    }
-
-    function closeBreakout() {
-        clearInterval(gameLoop);
-        clearInterval(keyInterval);
-        gameContainer.classList.add('closing');
-        setTimeout(() => gameContainer.remove(), 300);
-        document.removeEventListener('keydown', breakoutKeyDown);
-        document.removeEventListener('keyup', breakoutKeyUp);
-    }
-    document.getElementById('close-breakout').addEventListener('click', closeBreakout);
-
-    // Start initial state
-    draw();
-}
 
     // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
     // 2048 GAME
