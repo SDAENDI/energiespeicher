@@ -2,6 +2,26 @@
     // Add loaded class for page fade-in
     document.body.classList.add('loaded');
 
+    // Source Toggle Logic
+    document.querySelectorAll('.source-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const list = btn.nextElementSibling;
+            if (list) {
+                list.classList.toggle('visible');
+                // Optional: Change icon
+                const icon = btn.querySelector('i');
+                if (icon) {
+                    if (list.classList.contains('visible')) {
+                        icon.className = 'fa-solid fa-chevron-down';
+                    } else {
+                        icon.className = 'fa-solid fa-chevron-right';
+                    }
+                }
+            }
+        });
+    });
+
     // Mobile Menu Toggle with smooth animation
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -86,7 +106,7 @@
     }, observerOptions);
 
     // Select elements to animate
-    const animateElements = document.querySelectorAll('.card, .section-title, .tech-section, .hero p, .hero h1, .tech-showcase, table');
+    const animateElements = document.querySelectorAll('.card, .section-title, .tech-section, .hero p, .hero h1, .tech-showcase, table, .responsive-img');
 
     animateElements.forEach((el, index) => {
         el.classList.add('reveal');

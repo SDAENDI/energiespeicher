@@ -344,6 +344,7 @@ main {
     margin-bottom: 4rem;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .hero::before {
@@ -548,7 +549,6 @@ footer::before {
 .responsive-img {
     width: 100%;
     height: auto;
-    max-height: 350px;
     aspect-ratio: 16 / 9;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
@@ -653,4 +653,55 @@ footer::before {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-color);
+}
+
+/* Added fix for section overlap */
+.overview,
+.hero-overlap-fix {
+    position: relative;
+    z-index: 2;
+    background-color: var(--bg-color);
+    padding-top: 2rem;
+}
+
+/* Source Toggle Styles */
+.source-container {
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.source-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: color 0.2s ease;
+}
+
+.source-toggle-btn:hover {
+    color: var(--secondary-color);
+}
+
+.source-list {
+    display: none;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.source-list.visible {
+    display: inline;
 }

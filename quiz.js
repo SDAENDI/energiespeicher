@@ -286,27 +286,36 @@ function showQuestion() {
     const optionsDiv = document.getElementById('options');
     optionsDiv.innerHTML = '';
 
-    questionData.options.forEach((option, index) => {
+    // Create array with original index
+    const optionsWithIndex = questionData.options.map((opt, i) => ({
+        text: opt,
+        originalIndex: i
+    }));
+
+    // Shuffle options
+    optionsWithIndex.sort(() => Math.random() - 0.5);
+
+    optionsWithIndex.forEach((optObj, index) => {
         const btn = document.createElement('div');
         btn.className = 'option-btn';
-        btn.innerHTML = `<span style="font-weight:700; color:var(--primary-color)">${String.fromCharCode(65 + index)}</span> ${option}`;
-        btn.onclick = () => checkAnswer(index, btn);
+        btn.dataset.originalIndex = optObj.originalIndex; // Store original index
+        btn.innerHTML = `<span style="font-weight:700; color:var(--primary-color)">${String.fromCharCode(65 + index)}</span> ${optObj.text}`;
+        btn.onclick = () => checkAnswer(optObj.originalIndex, btn);
         optionsDiv.appendChild(btn);
     });
 
     acceptingAnswers = true;
 }
 
-function checkAnswer(selectedIndex, btnElement) {
+function checkAnswer(originalIndex, btnElement) {
     if (!acceptingAnswers) return;
     acceptingAnswers = false;
 
     const questionData = currentQuestions[currentQuestionIndex];
     const correctIndex = questionData.correct;
-
     const allOptions = document.querySelectorAll('.option-btn');
 
-    if (selectedIndex === correctIndex) {
+    if (originalIndex === correctIndex) {
         btnElement.classList.add('correct');
         btnElement.innerHTML += ' <i class="fa-solid fa-check" style="margin-left:auto; color:#10b981"></i>';
         score++;
@@ -314,10 +323,13 @@ function checkAnswer(selectedIndex, btnElement) {
         btnElement.classList.add('wrong');
         btnElement.innerHTML += ' <i class="fa-solid fa-xmark" style="margin-left:auto; color:#ef4444"></i>';
 
-        // Highlight correct answer
-        const correctBtn = allOptions[correctIndex];
-        correctBtn.classList.add('correct');
-        correctBtn.innerHTML += ' <i class="fa-solid fa-check" style="margin-left:auto; color:#10b981"></i>';
+        // Highlight correct answer by finding the button with the correct original index
+        allOptions.forEach(btn => {
+            if (parseInt(btn.dataset.originalIndex) === correctIndex) {
+                btn.classList.add('correct');
+                btn.innerHTML += ' <i class="fa-solid fa-check" style="margin-left:auto; color:#10b981"></i>';
+            }
+        });
     }
 
     // Wait a moment before next question
